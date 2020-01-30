@@ -32,6 +32,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DbMigrations", "tests\DemoS
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Persistence", "tests\DemoServer\Persistence\Persistence.csproj", "{50CF13D6-C90C-44AB-8B81-3C6626291834}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Core", "tests\DemoServer\Core\Core.csproj", "{ED840DCB-9D95-4E61-894E-FBEE817B527F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -62,6 +64,10 @@ Global
 		{50CF13D6-C90C-44AB-8B81-3C6626291834}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{50CF13D6-C90C-44AB-8B81-3C6626291834}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{50CF13D6-C90C-44AB-8B81-3C6626291834}.Release|Any CPU.Build.0 = Release|Any CPU
+		{ED840DCB-9D95-4E61-894E-FBEE817B527F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ED840DCB-9D95-4E61-894E-FBEE817B527F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ED840DCB-9D95-4E61-894E-FBEE817B527F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ED840DCB-9D95-4E61-894E-FBEE817B527F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -74,6 +80,7 @@ Global
 		{4C4C26FA-67A6-4025-B07C-602BA9BB9D2F} = {50E2D8DB-B5EE-433B-A4C5-2E5C73F9BB28}
 		{CA6BB345-7EFE-4450-A7C1-4D86E0B7B98F} = {50E2D8DB-B5EE-433B-A4C5-2E5C73F9BB28}
 		{50CF13D6-C90C-44AB-8B81-3C6626291834} = {50E2D8DB-B5EE-433B-A4C5-2E5C73F9BB28}
+		{ED840DCB-9D95-4E61-894E-FBEE817B527F} = {50E2D8DB-B5EE-433B-A4C5-2E5C73F9BB28}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {8365B4FF-5893-4D08-9ACF-4103A60E1D91}
