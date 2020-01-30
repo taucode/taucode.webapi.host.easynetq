@@ -8,16 +8,16 @@ namespace DemoCommon
         public SendMessageMessage(
             string correlationId,
             DateTime createdAt,
-            string from,
-            string to,
+            string sender,
+            string recipient,
             string subject,
             string content)
         {
             this.CorrelationId = correlationId;
             this.CreatedAt = createdAt;
 
-            this.From = from;
-            this.To = to;
+            this.Sender = sender;
+            this.Recipient = recipient;
             this.Subject = subject;
             this.Content = content;
         }
@@ -26,8 +26,8 @@ namespace DemoCommon
         public string CorrelationId { get; }
         public DateTime CreatedAt { get; }
 
-        public string From { get; }
-        public string To { get; }
+        public string Sender { get; }
+        public string Recipient { get; }
         public string Subject { get; }
         public string Content { get; }
     }

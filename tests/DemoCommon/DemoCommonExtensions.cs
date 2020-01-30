@@ -7,8 +7,8 @@
             return new SendMessageMessage(
                 domainEvent.CorrelationId,
                 domainEvent.OccurredAt,
-                domainEvent.From,
-                domainEvent.To,
+                domainEvent.Sender,
+                domainEvent.Recipient,
                 domainEvent.Subject,
                 domainEvent.Content);
         }
