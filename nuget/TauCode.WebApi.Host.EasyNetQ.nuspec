@@ -2,23 +2,22 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2013/05/nuspec.xsd">
   <metadata>
     <id>TauCode.WebApi.Host.EasyNetQ</id>
-    <version>1.0.0.0-dev-2020-01-27-12-37</version>
+    <version>1.0.0.0-dev-2020-01-31-12-35</version>
     <authors>TauCode</authors>
     <owners>TauCode</owners>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <license type="file">LICENSE.txt</license>
     <projectUrl>https://github.com/taucode/taucode.webapi.host.easynetq</projectUrl>
     <description>
-      NHibernate support for TauCode Web API host
+      EasyNetQ/RabbitMQ support for TauCode Web API host
     </description>
     <releaseNotes>
-      Moving to nuget.org
+      Initial version
     </releaseNotes>
     <tags>taucode webapi host nhibernate</tags>
     <dependencies>
-      <dependency id="FluentNHibernate" version="2.1.2" />
-      <dependency id="Inflector.NetStandard" version="1.2.2" />
-      <dependency id="TauCode.Domain.NHibernate" version="1.0.0-dev-2019-12-21-23-55" />
+      <dependency id="TauCode.Cqrs.Mq" version="1.0.0-dev-2020-01-29-09-45" />
+      <dependency id="TauCode.Mq.EasyNetQ" version="1.0.0-dev-2020-01-30-14-07" />
       <dependency id="TauCode.WebApi.Host" version="1.0.0-dev-2020-01-27-12-11" />
     </dependencies>
   </metadata>

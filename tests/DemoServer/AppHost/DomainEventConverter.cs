@@ -15,6 +15,11 @@ namespace AppHost
                 return SendMessageMessage.FromDomainEvent(sendMessageDomainEvent);
             }
 
+            if (domainEvent is PingDomainEvent pingDomainEvent)
+            {
+                return PingMessage.FromDomainEvent(pingDomainEvent);
+            }
+
             throw new NotSupportedException();
         }
     }

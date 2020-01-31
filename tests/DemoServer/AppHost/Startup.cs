@@ -1,6 +1,7 @@
 ﻿using Autofac;
 using Core;
 using DbMigrations;
+using Domain.Pings;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
@@ -53,10 +54,7 @@ namespace AppHost
                     options.Filters.Add(new ValidationFilterAttribute(this.GetValidatorsAssembly()));
                 })
                 .SetCompatibilityVersion(CompatibilityVersion.Version_2_2)
-                .AddJsonOptions(op =>
-                {
-                    op.SerializerSettings.Converters.Add(new StringEnumConverter());
-                });
+                .AddJsonOptions(op => { op.SerializerSettings.Converters.Add(new StringEnumConverter()); });
 
             services.AddSwaggerGen(c =>
             {
@@ -113,20 +111,28 @@ namespace AppHost
 
             var rabbitMQConnectionString = this.Configuration["ConnectionStrings:RabbitMQConnection"];
 
-            this.AddEasyNetQ(
-                typeof(CoreBeacon).Assembly,
-                typeof(NHibernateMessageHandlerContextFactory),
+            this.AddEasyNetQPublisher(
                 typeof(DomainEventConverter),
                 rabbitMQConnectionString);
+
+            this.AddEasyNetQSubscriber(
+                new Assembly[]
+                {
+                    typeof(CoreBeacon).Assembly
+                },
+                typeof(NHibernateMessageHandlerContextFactory),
+                rabbitMQConnectionString);
+
+            containerBuilder
+                .RegisterType<PingDomainService>()
+                .AsSelf()
+                .InstancePerLifetimeScope();
         }
 
         public override void Configure(IApplicationBuilder app)
         {
             app.UseSwagger();
-            app.UseSwaggerUI(c =>
-            {
-                c.SwaggerEndpoint("/swagger/v1/swagger.json", "Demo Server RESTful Service");
-            });
+            app.UseSwaggerUI(c => { c.SwaggerEndpoint("/swagger/v1/swagger.json", "Demo Server RESTful Service"); });
             app.UseMvc();
         }
     }
