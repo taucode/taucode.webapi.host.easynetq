@@ -2,8 +2,10 @@
 using Autofac.Core;
 using System;
 using System.Collections.Generic;
+using System.Reflection;
 using TauCode.Cqrs.Mq;
 using TauCode.Mq;
+using TauCode.Mq.Abstractions;
 using TauCode.Mq.EasyNetQ;
 
 namespace TauCode.WebApi.Host.EasyNetQ
@@ -12,18 +14,19 @@ namespace TauCode.WebApi.Host.EasyNetQ
     {
         public static IAppStartup AddEasyNetQ(
             this IAppStartup appStartup,
-            string rabbitMQConnectionString,
+            Assembly handlersAssembly,
             Type messageHandlerContextFactoryType,
-            Type domainEventConverterType)
+            Type domainEventConverterType,
+            string rabbitMQConnectionString)
         {
             if (appStartup == null)
             {
                 throw new ArgumentNullException(nameof(appStartup));
             }
 
-            if (rabbitMQConnectionString == null)
+            if (handlersAssembly == null)
             {
-                throw new ArgumentNullException(nameof(rabbitMQConnectionString));
+                throw new ArgumentNullException(nameof(handlersAssembly));
             }
 
             if (messageHandlerContextFactoryType == null)
@@ -45,7 +48,18 @@ namespace TauCode.WebApi.Host.EasyNetQ
                     nameof(domainEventConverterType));
             }
 
+            if (rabbitMQConnectionString == null)
+            {
+                throw new ArgumentNullException(nameof(rabbitMQConnectionString));
+            }
+
             var builder = appStartup.GetContainerBuilder();
+
+            builder
+                .RegisterAssemblyTypes()
+                .Where(x => x.IsClosedTypeOf(typeof(IMessageHandler<>)))
+                .AsSelf()
+                .InstancePerLifetimeScope();
 
             builder
                 .RegisterType<EasyNetQMessagePublisher>()
