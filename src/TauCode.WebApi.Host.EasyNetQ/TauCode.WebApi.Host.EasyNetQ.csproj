@@ -6,7 +6,7 @@
 
   <ItemGroup>
     <PackageReference Include="TauCode.Cqrs.Mq" Version="1.0.0-dev-2020-01-29-09-45" />
-    <PackageReference Include="TauCode.Mq.EasyNetQ" Version="1.0.0-dev-2019-12-29-16-33" />
+    <PackageReference Include="TauCode.Mq.EasyNetQ" Version="1.0.0-dev-2020-01-30-14-07" />
     <PackageReference Include="TauCode.WebApi.Host" Version="1.0.0-dev-2020-01-27-12-11" />
   </ItemGroup>
 

@@ -1,12 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore;
+﻿using Microsoft.AspNetCore;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.Extensions.Configuration;
-using Microsoft.Extensions.Logging;
+using Microsoft.Extensions.DependencyInjection;
+using System.Globalization;
+using TauCode.Mq;
 
 namespace AppHost
 {
@@ -14,7 +10,21 @@ namespace AppHost
     {
         public static void Main(string[] args)
         {
-            CreateWebHostBuilder(args).Build().Run();
+            Inflector.Inflector.SetDefaultCultureFunc = () => new CultureInfo("en-US");
+            //CreateWebHostBuilder(args).Build().Run();
+
+            var host = CreateWebHostBuilder(args).Build();
+
+            var publisher = host.Services.GetService<IMessagePublisher>();
+            var subscriber = host.Services.GetService<IMessageSubscriber>();
+
+            publisher.Start();
+            subscriber.Start();
+
+            host.Run();
+
+            subscriber.Dispose();
+            publisher.Dispose();
         }
 
         public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>

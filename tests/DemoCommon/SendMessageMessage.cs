@@ -30,5 +30,16 @@ namespace DemoCommon
         public string Recipient { get; }
         public string Subject { get; }
         public string Content { get; }
+
+        public static SendMessageMessage FromDomainEvent(SendMessageDomainEvent domainEvent)
+        {
+            return new SendMessageMessage(
+                domainEvent.CorrelationId,
+                domainEvent.OccurredAt,
+                domainEvent.Sender,
+                domainEvent.Recipient,
+                domainEvent.Subject,
+                domainEvent.Content);
+        }
     }
 }
