@@ -56,7 +56,7 @@ namespace TauCode.WebApi.Host.EasyNetQ
             var builder = appStartup.GetContainerBuilder();
 
             builder
-                .RegisterAssemblyTypes()
+                .RegisterAssemblyTypes(handlersAssembly)
                 .Where(x => x.IsClosedTypeOf(typeof(IMessageHandler<>)))
                 .AsSelf()
                 .InstancePerLifetimeScope();
@@ -95,6 +95,29 @@ namespace TauCode.WebApi.Host.EasyNetQ
             }
 
             return appStartup;
+        }
+
+        public static IList<Type> GetRegisteredMessageHandlerTypes(this ILifetimeScope scope)
+        {
+            var list = new List<Type>();
+
+            foreach (var registration in scope.ComponentRegistry.Registrations)
+            {
+                var services = registration.Services;
+                foreach (var service in services)
+                {
+                    if (service is TypedService typedService)
+                    {
+                        var serviceType = typedService.ServiceType;
+                        if (serviceType.IsClosedTypeOf(typeof(IMessageHandler<>)))
+                        {
+                            list.Add(serviceType);
+                        }
+                    }
+                }
+            }
+
+            return list;
         }
     }
 }

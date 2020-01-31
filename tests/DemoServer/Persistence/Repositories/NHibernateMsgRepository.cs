@@ -10,7 +10,7 @@ namespace Persistence.Repositories
     {
         private readonly ISession _session;
 
-        protected NHibernateMsgRepository(ISession session)
+        public NHibernateMsgRepository(ISession session)
         {
             _session = session;
         }
