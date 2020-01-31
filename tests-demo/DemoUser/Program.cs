@@ -1,11 +1,13 @@
 ﻿using Autofac;
 using DemoUser.Cli;
 using DemoUser.Cli.Workers;
+using DemoUser.Handlers;
 using Serilog;
 using System;
 using TauCode.Cli;
 using TauCode.Cli.Exceptions;
 using TauCode.Mq;
+using TauCode.Mq.Autofac;
 using TauCode.Mq.EasyNetQ;
 
 namespace DemoUser
@@ -34,6 +36,16 @@ namespace DemoUser
             containerBuilder
                 .RegisterType<EasyNetQMessageSubscriber>()
                 .As<IMessageSubscriber>()
+                .SingleInstance();
+
+            containerBuilder
+                .RegisterType<PingHandler>()
+                .AsSelf()
+                .InstancePerLifetimeScope();
+
+            containerBuilder
+                .RegisterType<AutofacMessageHandlerContextFactory>()
+                .As<IMessageHandlerContextFactory>()
                 .SingleInstance();
 
             containerBuilder
@@ -74,6 +86,9 @@ namespace DemoUser
             _publisher = _container.Resolve<IMessagePublisher>();
             ((EasyNetQMessagePublisher)_publisher).ConnectionString = "host=localhost";
 
+            var subscriber = _container.Resolve<IMessageSubscriber>();
+            ((EasyNetQMessageSubscriber)subscriber).ConnectionString = "host=localhost";
+
             _publisher.Start();
 
             var host = _container.Resolve<Host>();
@@ -109,6 +124,7 @@ namespace DemoUser
                     Console.WriteLine(ex);
                 }
             }
+
             _publisher.Dispose();
         }
     }
