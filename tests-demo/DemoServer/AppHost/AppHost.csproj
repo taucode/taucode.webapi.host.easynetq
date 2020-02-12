@@ -15,7 +15,7 @@
     <PackageReference Include="Swashbuckle.AspNetCore.Annotations" Version="4.0.1" />
     <PackageReference Include="TauCode.Cqrs.NHibernate" Version="1.0.0-dev-2019-12-22-01-15" />
     <PackageReference Include="TauCode.Db.FluentMigrations" Version="1.0.0-dev-2020-01-27-11-16" />
-    <PackageReference Include="TauCode.Mq.NHibernate" Version="1.0.0-dev-2020-01-31-00-06" />
+    <PackageReference Include="TauCode.Mq.NHibernate" Version="1.0.0-dev-2020-02-12-18-26" />
     <PackageReference Include="TauCode.WebApi.Host.Cqrs" Version="1.0.0-dev-2020-01-27-12-32" />
     <PackageReference Include="TauCode.WebApi.Host.NHibernate" Version="1.0.0-dev-2020-01-27-12-37" />
   </ItemGroup>

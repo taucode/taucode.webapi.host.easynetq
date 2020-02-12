@@ -19,8 +19,8 @@
     <PackageReference Include="Autofac" Version="4.9.4" />
     <PackageReference Include="Serilog.Sinks.Console" Version="3.1.1" />
     <PackageReference Include="TauCode.Cli" Version="1.0.0-dev-2020-01-20-17-32" />
-    <PackageReference Include="TauCode.Mq.Autofac" Version="1.0.0-dev-2020-01-30-22-29" />
-    <PackageReference Include="TauCode.Mq.EasyNetQ" Version="1.0.0-dev-2020-01-30-14-07" />
+    <PackageReference Include="TauCode.Mq.Autofac" Version="1.0.0-dev-2020-02-12-18-20" />
+    <PackageReference Include="TauCode.Mq.EasyNetQ" Version="1.0.0-dev-2020-02-12-18-09" />
   </ItemGroup>
 
   <ItemGroup>

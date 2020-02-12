@@ -16,8 +16,8 @@
     </releaseNotes>
     <tags>taucode webapi host nhibernate</tags>
     <dependencies>
-      <dependency id="TauCode.Cqrs.Mq" version="1.0.0-dev-2020-01-31-13-40" />
-      <dependency id="TauCode.Mq.EasyNetQ" version="1.0.0-dev-2020-01-30-14-07" />
+      <dependency id="TauCode.Cqrs.Mq" version="1.0.0-dev-2020-02-12-18-32" />
+      <dependency id="TauCode.Mq.EasyNetQ" version="1.0.0-dev-2020-02-12-18-09" />
       <dependency id="TauCode.WebApi.Host" version="1.0.0-dev-2020-01-27-12-11" />
     </dependencies>
   </metadata>

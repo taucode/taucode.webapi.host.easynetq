@@ -5,8 +5,8 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="TauCode.Cqrs.Mq" Version="1.0.0-dev-2020-01-31-13-40" />
-    <PackageReference Include="TauCode.Mq.EasyNetQ" Version="1.0.0-dev-2020-01-30-14-07" />
+    <PackageReference Include="TauCode.Cqrs.Mq" Version="1.0.0-dev-2020-02-12-18-32" />
+    <PackageReference Include="TauCode.Mq.EasyNetQ" Version="1.0.0-dev-2020-02-12-18-09" />
     <PackageReference Include="TauCode.WebApi.Host" Version="1.0.0-dev-2020-01-27-12-11" />
   </ItemGroup>
 
