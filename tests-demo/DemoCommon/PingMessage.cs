@@ -5,6 +5,10 @@ namespace DemoCommon
 {
     public class PingMessage : IMessage
     {
+        public PingMessage()
+        {   
+        }
+
         public PingMessage(
             string correlationId,
             DateTime createdAt,
@@ -17,10 +21,10 @@ namespace DemoCommon
             this.Text = text ?? throw new ArgumentNullException(nameof(text));
         }
 
-        public string CorrelationId { get; }
-        public DateTime CreatedAt { get; }
-        public string To { get; }
-        public string Text { get; }
+        public string CorrelationId { get; set; }
+        public DateTime CreatedAt { get; set; }
+        public string To { get; set; }
+        public string Text { get; set; }
 
         public static PingMessage FromDomainEvent(PingDomainEvent pingDomainEvent)
         {

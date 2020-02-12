@@ -5,6 +5,10 @@ namespace DemoCommon
 {
     public class SendMessageMessage : IMessage
     {
+        public SendMessageMessage()
+        {   
+        }
+
         public SendMessageMessage(
             string correlationId,
             DateTime createdAt,
@@ -23,13 +27,13 @@ namespace DemoCommon
         }
 
 
-        public string CorrelationId { get; }
-        public DateTime CreatedAt { get; }
+        public string CorrelationId { get; set; }
+        public DateTime CreatedAt { get; set; }
 
-        public string Sender { get; }
-        public string Recipient { get; }
-        public string Subject { get; }
-        public string Content { get; }
+        public string Sender { get; set; }
+        public string Recipient { get; set; }
+        public string Subject { get; set; }
+        public string Content { get; set; }
 
         public static SendMessageMessage FromDomainEvent(SendMessageDomainEvent domainEvent)
         {
