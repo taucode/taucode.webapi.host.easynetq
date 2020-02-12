@@ -2,7 +2,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2013/05/nuspec.xsd">
   <metadata>
     <id>TauCode.WebApi.Host.EasyNetQ</id>
-    <version>1.0.0.0-dev-2020-01-31-14-23</version>
+    <version>1.0.0.0-dev-2020-02-12-20-42</version>
     <authors>TauCode</authors>
     <owners>TauCode</owners>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
@@ -12,7 +12,7 @@
       EasyNetQ/RabbitMQ support for TauCode Web API host
     </description>
     <releaseNotes>
-      Initial version
+      Updated references.
     </releaseNotes>
     <tags>taucode webapi host nhibernate</tags>
     <dependencies>
