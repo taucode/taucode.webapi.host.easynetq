@@ -38,7 +38,13 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Core", "tests-demo\DemoServ
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AppHost", "tests-demo\DemoServer\AppHost\AppHost.csproj", "{99D2B068-2153-4C20-BFE4-748928C140D4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TauCode.WebApi.Host.EasyNetQ.Tests", "tests\TauCode.WebApi.Host.EasyNetQ.Tests\TauCode.WebApi.Host.EasyNetQ.Tests.csproj", "{88959741-F3B1-4B8E-BBD7-A5E33E12EB22}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TauCode.WebApi.Host.EasyNetQ.Tests", "tests\TauCode.WebApi.Host.EasyNetQ.Tests\TauCode.WebApi.Host.EasyNetQ.Tests.csproj", "{88959741-F3B1-4B8E-BBD7-A5E33E12EB22}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "build", "build", "{B1907B7D-A507-4560-96C8-329CACE49DCC}"
+	ProjectSection(SolutionItems) = preProject
+		build\azure-pipelines-dev.yml = build\azure-pipelines-dev.yml
+		build\azure-pipelines.yml = build\azure-pipelines.yml
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
