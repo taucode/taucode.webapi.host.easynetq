@@ -1,0 +1,18 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="NHibernate" Version="5.2.7" />
+    <PackageReference Include="TauCode.Cqrs" Version="1.0.0-dev-2019-12-22-00-45" />
+    <PackageReference Include="TauCode.Cqrs.Mq" Version="1.0.0-dev-2020-02-13-20-40" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\DemoCommon\DemoCommon.csproj" />
+    <ProjectReference Include="..\Domain\Domain.csproj" />
+  </ItemGroup>
+
+</Project>
